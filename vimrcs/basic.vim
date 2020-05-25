@@ -45,12 +45,19 @@ au FocusGained,BufEnter * checktime
 " like <leader>w saves the current file
 let mapleader = ","
 
-" Fast saving
+" Fast saving and typing
 nmap <leader>w :w!<cr>
+command! W w
+command! WQ wq
+command! Wq wq
+command! Q q
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" Disables version warnings on loading vim
+let g:go_version_warning = 0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -58,6 +65,9 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
+
+" Set line numbers
+set number
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' 
@@ -139,10 +149,7 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
+colorscheme delek
 
 set background=dark
 
