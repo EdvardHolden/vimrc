@@ -52,10 +52,6 @@ command! WQ wq
 command! Wq wq
 command! Q q
 
-" :W sudo saves the file 
-" (useful for handling the permission-denied error)
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-
 " Disables version warnings on loading vim
 let g:go_version_warning = 0
 
