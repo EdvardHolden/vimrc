@@ -161,7 +161,7 @@ let g:ale_linters = {
 \}
 
 "" Remove some annoying python lint errors
-let g:ale_python_flake8_options = '--ignore=E501,E231,E303,E265,E303,W391'
+let g:ale_python_flake8_options = '--max-line-length 100 --ignore=E501,E231,E303,E265,E303,E261,E302,W391'
 
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
@@ -173,11 +173,18 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 
-" Show quickfix with errors on save
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
+" Make sure location list is ran how I like it 
+let g:ale_set_loclist = 1
+let g:ale_set_quickfix = 0
 let g:ale_open_list = 1
 let g:ale_list_window_size = 5
+let g:ale_keep_list_window_open = 0
+
+" Close the loclist automatically when the buffer is closed
+augroup CloseLoclistWindowGroup
+    autocmd!
+    autocmd QuitPre * if empty(&buftype) | lclose | endif
+augroup END
 
 " Improve status line
 function! LinterStatus() abort
