@@ -28,8 +28,12 @@ set guioptions-=l
 set guioptions-=L
 
 " Colorscheme
-set background=dark
+set background=light
 colorscheme solarized
+
+" Fix inconsistent json problems
+set foldmethod=syntax
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

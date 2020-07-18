@@ -156,12 +156,12 @@ nnoremap <silent> <leader>z :Goyo<cr>
 
 let g:ale_linters = {
 \   'javascript': ['jshint'],
-\   'python': ['flake8'],
+\   'python': ['flake8', 'mypy'],
 \   'go': ['go', 'golint', 'errcheck']
 \}
 
 "" Remove some annoying python lint errors
-let g:ale_python_flake8_options = '--max-line-length 100 --ignore=E501,E231,E303,E265,E303,E261,E302,W391'
+let g:ale_python_flake8_options = '--max-line-length 100 --ignore=E501,E231,E303,E265,E303,E261,E302,W391,W605'
 
 nmap <silent> <leader>a <Plug>(ale_next_wrap)
 
